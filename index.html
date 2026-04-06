@@ -1,0 +1,122 @@
+<!-- 
+Nome: Gabryel da Silva Moura.
+RA: 03261048.
+Turma: 1SIS. 
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Atividade ChartJS</title>
+</head>
+
+<style>
+    .card{
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center;
+    }
+
+    .medida{
+        position: relative;
+        height: 48vh;
+        width: 48vw;
+    }
+</style>
+
+<body class="card" style=" flex-direction: column;">
+    
+    <h1 style="font-family: sans-serif;">Gráficos Utilizando ChartJS</h1>
+
+    <div class="card" style="flex-direction: row;">
+        <div style="margin-top: 50px;">
+            <canvas id="myChart" class="medida"></canvas>
+        </div>
+
+        <div style="margin-top: 50px;">
+            <canvas id="myChart2" class="medida"></canvas>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+  const ctx = document.getElementById('myChart');
+  const ctx2 = document.getElementById('myChart2');
+
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+        labels: [
+            '12:00',
+            '13:00',
+            '14:00',
+            '15:00',
+            '16:00',
+            '17:00'
+        ],
+        
+        datasets: [{
+            label: 'Temperatura',
+            data: [30, 29, 28, 25, 22, 23],
+            borderWidth: 1,
+            borderColor: 'red',
+            backgroundColor: 'red'
+        },    
+        
+        {
+            label: 'Umidade',
+            data: [80, 82, 80, 85, 80, 83],
+            borderWidth: 1,
+            borderColor: 'blue',
+            backgroundColor: 'blue'
+        }]},
+
+        options: {
+        scales: {
+            y: {
+            beginAtZero: true
+            }
+        }
+        }
+    });
+ 
+    new Chart(ctx2, {
+        type: 'bar',
+        data: {
+        labels: [
+            'Janeiro',
+            'Fevereiro',
+            'Março',
+            'Abril',
+            'Maio',
+            'Junho'
+        ],
+        
+        datasets: [{
+            label: 'Temperatura Média',
+            data: [22, 24, 27, 23, 20, 18],
+            borderWidth: 1,
+            borderColor: 'red',
+            backgroundColor: 'red'
+        },
+        
+        {
+            label: 'Umidade Média',
+            data: [90, 89, 93, 87, 88, 82],
+            borderWidth: 1,
+            borderColor: 'blue',
+            backgroundColor: 'blue'
+        }]},
+
+        options: {
+        scales: {
+            y: {
+            beginAtZero: true
+            }
+        }}
+    });
+</script>
